@@ -2,76 +2,111 @@ import { ElectronAPI } from '@electron-toolkit/preload'
 
 declare global {
   interface Window {
-    electron: ElectronAPI;
+    electron: ElectronAPI
     api: {
-      type: {
-        create: (data: Partial<Type>) => Promise<{ success: boolean; data: number }>;
-        readAll: () => Promise<{ success: boolean; data: Type[] }>;
-        readById: (id: number) => Promise<{ success: boolean; data: Type | undefined }>;
-        update: (id: number, data: Partial<Type>) => Promise<{ success: boolean; data: void }>;
-        delete: (id: number) => Promise<{ success: boolean; data: void }>;
-      };
-      status: {
-        create: (data: Partial<Status>) => Promise<{ success: boolean; data: number }>;
-        readAll: () => Promise<{ success: boolean; data: Status[] }>;
-        readById: (id: number) => Promise<{ success: boolean; data: Status | undefined }>;
-        update: (id: number, data: Partial<Status>) => Promise<{ success: boolean; data: void }>;
-        delete: (id: number) => Promise<{ success: boolean; data: void }>;
-      };
-      cliente: {
-        create: (data: Partial<Cliente>) => Promise<{ success: boolean; data: number }>;
-        readAll: () => Promise<{ success: boolean; data: Cliente[] }>;
-        readById: (id: number) => Promise<{ success: boolean; data: Cliente | undefined }>;
-        update: (id: number, data: Partial<Cliente>) => Promise<{ success: boolean; data: void }>;
-        delete: (id: number) => Promise<{ success: boolean; data: void }>;
-      };
-      activity: {
-        create: (data: Partial<Activity>) => Promise<{ success: boolean; data: number }>;
-        readAll: () => Promise<{ success: boolean; data: Activity[] }>;
-        readById: (id: number) => Promise<{ success: boolean; data: Activity | undefined }>;
-        update: (id: number, data: Partial<Activity>) => Promise<{ success: boolean; data: void }>;
-        delete: (id: number) => Promise<{ success: boolean; data: void }>;
-      };
-    };
+      note: {
+        create: (data: Partial<Note>) => Promise<{ success: boolean; data: number }>
+        readAll: () => Promise<{ success: boolean; data: Note[] }>
+        readById: (id: number) => Promise<{ success: boolean; data: Note | undefined }>
+        update: (id: number, data: Partial<Note>) => Promise<{ success: boolean; data: void }>
+        delete: (id: number) => Promise<{ success: boolean; data: void }>
+      }
+      task: {
+        create: (data: Partial<Task>) => Promise<{ success: boolean; data: number }>
+        readAll: () => Promise<{ success: boolean; data: Task[] }>
+        readById: (id: number) => Promise<{ success: boolean; data: Task | undefined }>
+        update: (id: number, data: Partial<Task>) => Promise<{ success: boolean; data: void }>
+        delete: (id: number) => Promise<{ success: boolean; data: void }>
+      }
+      kanbanColumn: {
+        create: (data: Partial<KanbanColumn>) => Promise<{ success: boolean; data: number }>
+        readAll: () => Promise<{ success: boolean; data: KanbanColumn[] }>
+        readById: (id: number) => Promise<{ success: boolean; data: KanbanColumn | undefined }>
+        update: (
+          id: number,
+          data: Partial<KanbanColumn>
+        ) => Promise<{ success: boolean; data: void }>
+        delete: (id: number) => Promise<{ success: boolean; data: void }>
+      }
+      folder: {
+        create: (data: Partial<Folder>) => Promise<{ success: boolean; data: number }>
+        readAll: () => Promise<{ success: boolean; data: Folder[] }>
+        readById: (id: number) => Promise<{ success: boolean; data: Folder | undefined }>
+        update: (id: number, data: Partial<Folder>) => Promise<{ success: boolean; data: void }>
+        delete: (id: number) => Promise<{ success: boolean; data: void }>
+      }
+      attachment: {
+        create: (data: Partial<Attachment>) => Promise<{ success: boolean; data: number }>
+        readAll: () => Promise<{ success: boolean; data: Attachment[] }>
+        readById: (id: number) => Promise<{ success: boolean; data: Attachment | undefined }>
+        update: (id: number, data: Partial<Attachment>) => Promise<{ success: boolean; data: void }>
+        delete: (id: number) => Promise<{ success: boolean; data: void }>
+      }
+      password: {
+        create: (data: Partial<Password>) => Promise<{ success: boolean; data: number }>
+        readAll: () => Promise<{ success: boolean; data: Password[] }>
+        readById: (id: number) => Promise<{ success: boolean; data: Password | undefined }>
+        update: (id: number, data: Partial<Password>) => Promise<{ success: boolean; data: void }>
+        delete: (id: number) => Promise<{ success: boolean; data: void }>
+      }
+    }
+  }
+  interface Note {
+    id: number
+    title: string
+    content?: string
+    folderId?: number
+    createdAt: string
+    updatedAt: string
+    deletedAt?: string
   }
 
-    interface Type {
-    id: number;
-    name: string;
-    iconName?: string;
-    createdAt: string;
-    updatedAt: string;
-    deletedAt?: string;
+  interface Task {
+    id: number
+    title: string
+    description?: string
+    kanbanColumnId: number
+    folderId?: number
+    createdAt: string
+    updatedAt: string
+    deletedAt?: string
   }
 
-  interface Status {
-    id: number;
-    position: number;
-    iconName?: string;
-    createdAt: string;
-    updatedAt: string;
-    deletedAt?: string;
+  interface KanbanColumn {
+    id: number
+    name: string
+    position: number
+    createdAt: string
+    updatedAt: string
+    deletedAt?: string
   }
 
-  interface Cliente {
-    id: number;
-    name: string;
-    iconBase64?: string;
-    createdAt: string;
-    updatedAt: string;
-    deletedAt?: string;
+  interface Folder {
+    id: number
+    name: string
+    createdAt: string
+    updatedAt: string
+    deletedAt?: string
   }
 
-  interface Activity {
-    id: number;
-    typeId: number;
-    priority: number;
-    title: string;
-    description?: string;
-    statusId: number;
-    clientId: number;
-    createdAt: string;
-    updatedAt: string;
-    deletedAt?: string;
+  interface Attachment {
+    id: number
+    filename: string
+    link: string
+    kanbanColumnId?: number
+    noteId?: number
+    taskId?: number
+    createdAt: string
+    updatedAt: string
+    deletedAt?: string
+  }
+
+  interface Password {
+    id: number
+    folderId: number
+    encryptedPassword: string
+    createdAt: string
+    updatedAt: string
+    deletedAt?: string
   }
 }

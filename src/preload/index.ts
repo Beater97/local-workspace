@@ -2,40 +2,58 @@ import { contextBridge, ipcRenderer } from 'electron';
 import { electronAPI } from '@electron-toolkit/preload';
 
 const api = {
-  // 📦 Type
-  type: {
-    create: (data: Partial<Type>) => ipcRenderer.invoke('type:create', data),
-    readAll: () => ipcRenderer.invoke('type:readAll'),
-    readById: (id: number) => ipcRenderer.invoke('type:readById', id),
-    update: (id: number, data: Partial<Type>) => ipcRenderer.invoke('type:update', id, data),
-    delete: (id: number) => ipcRenderer.invoke('type:delete', id)
+  // 📦 Note
+  note: {
+    create: (data: Partial<Note>) => ipcRenderer.invoke('note:create', data),
+    readAll: () => ipcRenderer.invoke('note:readAll'),
+    readById: (id: number) => ipcRenderer.invoke('note:readById', id),
+    update: (id: number, data: Partial<Note>) => ipcRenderer.invoke('note:update', id, data),
+    delete: (id: number) => ipcRenderer.invoke('note:delete', id)
   },
 
-  // 📦 Status
-  status: {
-    create: (data: Partial<Status>) => ipcRenderer.invoke('status:create', data),
-    readAll: () => ipcRenderer.invoke('status:readAll'),
-    readById: (id: number) => ipcRenderer.invoke('status:readById', id),
-    update: (id: number, data: Partial<Status>) => ipcRenderer.invoke('status:update', id, data),
-    delete: (id: number) => ipcRenderer.invoke('status:delete', id)
+  // 📦 Task
+  task: {
+    create: (data: Partial<Task>) => ipcRenderer.invoke('task:create', data),
+    readAll: () => ipcRenderer.invoke('task:readAll'),
+    readById: (id: number) => ipcRenderer.invoke('task:readById', id),
+    update: (id: number, data: Partial<Task>) => ipcRenderer.invoke('task:update', id, data),
+    delete: (id: number) => ipcRenderer.invoke('task:delete', id)
   },
 
-  // 📦 Cliente
-  cliente: {
-    create: (data: Partial<Cliente>) => ipcRenderer.invoke('cliente:create', data),
-    readAll: () => ipcRenderer.invoke('cliente:readAll'),
-    readById: (id: number) => ipcRenderer.invoke('cliente:readById', id),
-    update: (id: number, data: Partial<Cliente>) => ipcRenderer.invoke('cliente:update', id, data),
-    delete: (id: number) => ipcRenderer.invoke('cliente:delete', id)
+  // 📦 KanbanColumn
+  kanbanColumn: {
+    create: (data: Partial<KanbanColumn>) => ipcRenderer.invoke('kanbanColumn:create', data),
+    readAll: () => ipcRenderer.invoke('kanbanColumn:readAll'),
+    readById: (id: number) => ipcRenderer.invoke('kanbanColumn:readById', id),
+    update: (id: number, data: Partial<KanbanColumn>) => ipcRenderer.invoke('kanbanColumn:update', id, data),
+    delete: (id: number) => ipcRenderer.invoke('kanbanColumn:delete', id)
   },
 
-  // 📦 Activity
-  activity: {
-    create: (data: Partial<Activity>) => ipcRenderer.invoke('activity:create', data),
-    readAll: () => ipcRenderer.invoke('activity:readAll'),
-    readById: (id: number) => ipcRenderer.invoke('activity:readById', id),
-    update: (id: number, data: Partial<Activity>) => ipcRenderer.invoke('activity:update', id, data),
-    delete: (id: number) => ipcRenderer.invoke('activity:delete', id)
+  // 📦 Folder
+  folder: {
+    create: (data: Partial<Folder>) => ipcRenderer.invoke('folder:create', data),
+    readAll: () => ipcRenderer.invoke('folder:readAll'),
+    readById: (id: number) => ipcRenderer.invoke('folder:readById', id),
+    update: (id: number, data: Partial<Folder>) => ipcRenderer.invoke('folder:update', id, data),
+    delete: (id: number) => ipcRenderer.invoke('folder:delete', id)
+  },
+
+  // 📦 Attachment
+  attachment: {
+    create: (data: Partial<Attachment>) => ipcRenderer.invoke('attachment:create', data),
+    readAll: () => ipcRenderer.invoke('attachment:readAll'),
+    readById: (id: number) => ipcRenderer.invoke('attachment:readById', id),
+    update: (id: number, data: Partial<Attachment>) => ipcRenderer.invoke('attachment:update', id, data),
+    delete: (id: number) => ipcRenderer.invoke('attachment:delete', id)
+  },
+
+  // 📦 Password
+  password: {
+    create: (data: Partial<Password>) => ipcRenderer.invoke('password:create', data),
+    readAll: () => ipcRenderer.invoke('password:readAll'),
+    readById: (id: number) => ipcRenderer.invoke('password:readById', id),
+    update: (id: number, data: Partial<Password>) => ipcRenderer.invoke('password:update', id, data),
+    delete: (id: number) => ipcRenderer.invoke('password:delete', id)
   }
 };
 

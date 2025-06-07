@@ -1,43 +1,62 @@
 export {};
 
 declare global {
-  interface Type {
+  interface Note {
     id: number;
-    name: string;
-    iconName?: string;
+    title: string;
+    content?: string;
+    folderId?: number;
     createdAt: string;
     updatedAt: string;
     deletedAt?: string;
-  }
+}
 
-  interface Status {
+interface Task {
     id: number;
-    position: number;
-    iconName?: string;
-    createdAt: string;
-    updatedAt: string;
-    deletedAt?: string;
-  }
-
-  interface Cliente {
-    id: number;
-    name: string;
-    iconBase64?: string;
-    createdAt: string;
-    updatedAt: string;
-    deletedAt?: string;
-  }
-
-  interface Activity {
-    id: number;
-    typeId: number;
-    priority: number;
     title: string;
     description?: string;
-    statusId: number;
-    clientId: number;
+    kanbanColumnId: number;
+    folderId?: number;
     createdAt: string;
     updatedAt: string;
     deletedAt?: string;
-  }
+}
+
+interface KanbanColumn {
+    id: number;
+    name: string;
+    position: number;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt?: string;
+}
+
+interface Folder {
+    id: number;
+    name: string;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt?: string;
+}
+
+interface Attachment {
+    id: number;
+    filename: string;
+    link: string;
+    kanbanColumnId?: number;
+    noteId?: number;
+    taskId?: number;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt?: string;
+}
+
+interface Password {
+    id: number;
+    folderId: number;
+    encryptedPassword: string;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt?: string;
+}
 }

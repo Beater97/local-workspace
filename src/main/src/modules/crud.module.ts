@@ -34,36 +34,50 @@ function softDelete(table: string, id: number): void {
   const sql = `UPDATE ${table} SET deletedAt = CURRENT_TIMESTAMP WHERE id = ?`;
   dbInstance.runQuery(sql, [id]);
 }
-
-// ✅ CRUD specifici
-export const TypeCRUD = {
-  create: (data: Partial<Type>) => create<Type>('type', data),
-  readAll: () => readAll<Type>('type'),
-  readById: (id: number) => readById<Type>('type', id),
-  update: (id: number, data: Partial<Type>) => update<Type>('type', id, data),
-  delete: (id: number) => softDelete('type', id),
+export const NoteCRUD = {
+  create: (data: Partial<Note>) => create<Note>('note', data),
+  readAll: () => readAll<Note>('note'),
+  readById: (id: number) => readById<Note>('note', id),
+  update: (id: number, data: Partial<Note>) => update<Note>('note', id, data),
+  delete: (id: number) => softDelete('note', id),
 };
 
-export const StatusCRUD = {
-  create: (data: Partial<Status>) => create<Status>('status', data),
-  readAll: () => readAll<Status>('status'),
-  readById: (id: number) => readById<Status>('status', id),
-  update: (id: number, data: Partial<Status>) => update<Status>('status', id, data),
-  delete: (id: number) => softDelete('status', id),
+export const TaskCRUD = {
+  create: (data: Partial<Task>) => create<Task>('task', data),
+  readAll: () => readAll<Task>('task'),
+  readById: (id: number) => readById<Task>('task', id),
+  update: (id: number, data: Partial<Task>) => update<Task>('task', id, data),
+  delete: (id: number) => softDelete('task', id),
 };
 
-export const ClienteCRUD = {
-  create: (data: Partial<Cliente>) => create<Cliente>('cliente', data),
-  readAll: () => readAll<Cliente>('cliente'),
-  readById: (id: number) => readById<Cliente>('cliente', id),
-  update: (id: number, data: Partial<Cliente>) => update<Cliente>('cliente', id, data),
-  delete: (id: number) => softDelete('cliente', id),
+export const KanbanColumnCRUD = {
+  create: (data: Partial<KanbanColumn>) => create<KanbanColumn>('kanbanColumn', data),
+  readAll: () => readAll<KanbanColumn>('kanbanColumn'),
+  readById: (id: number) => readById<KanbanColumn>('kanbanColumn', id),
+  update: (id: number, data: Partial<KanbanColumn>) => update<KanbanColumn>('kanbanColumn', id, data),
+  delete: (id: number) => softDelete('kanbanColumn', id),
 };
 
-export const ActivityCRUD = {
-  create: (data: Partial<Activity>) => create<Activity>('activity', data),
-  readAll: () => readAll<Activity>('activity'),
-  readById: (id: number) => readById<Activity>('activity', id),
-  update: (id: number, data: Partial<Activity>) => update<Activity>('activity', id, data),
-  delete: (id: number) => softDelete('activity', id),
+export const FolderCRUD = {
+  create: (data: Partial<Folder>) => create<Folder>('folder', data),
+  readAll: () => readAll<Folder>('folder'),
+  readById: (id: number) => readById<Folder>('folder', id),
+  update: (id: number, data: Partial<Folder>) => update<Folder>('folder', id, data),
+  delete: (id: number) => softDelete('folder', id),
+};
+
+export const AttachmentCRUD = {
+  create: (data: Partial<Attachment>) => create<Attachment>('attachment', data),
+  readAll: () => readAll<Attachment>('attachment'),
+  readById: (id: number) => readById<Attachment>('attachment', id),
+  update: (id: number, data: Partial<Attachment>) => update<Attachment>('attachment', id, data),
+  delete: (id: number) => softDelete('attachment', id),
+};
+
+export const PasswordCRUD = {
+  create: (data: Partial<Password>) => create<Password>('password', data),
+  readAll: () => readAll<Password>('password'),
+  readById: (id: number) => readById<Password>('password', id),
+  update: (id: number, data: Partial<Password>) => update<Password>('password', id, data),
+  delete: (id: number) => softDelete('password', id),
 };
