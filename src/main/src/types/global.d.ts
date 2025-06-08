@@ -19,6 +19,7 @@ interface Task {
     folderId?: number;
     createdAt: string;
     updatedAt: string;
+    completedAt?: string;
     deletedAt?: string;
 }
 

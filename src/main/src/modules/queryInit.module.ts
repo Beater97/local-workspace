@@ -16,13 +16,14 @@ CREATE TABLE IF NOT EXISTS task (
     title TEXT NOT NULL,  
     description TEXT,  
     kanbanColumnId INTEGER NOT NULL,  
-    folderId INTEGER,  
-    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,  
-    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,  
-    deletedAt TEXT,  
-    FOREIGN KEY (kanbanColumnId) REFERENCES kanbanColumn(id),  
-    FOREIGN KEY (folderId) REFERENCES folder(id)  
-);  
+    folderId INTEGER,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    completedAt TEXT,
+    deletedAt TEXT,
+    FOREIGN KEY (kanbanColumnId) REFERENCES kanbanColumn(id),
+    FOREIGN KEY (folderId) REFERENCES folder(id)
+);
 
 CREATE TABLE IF NOT EXISTS kanbanColumn (  
     id INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -63,7 +64,9 @@ CREATE TABLE IF NOT EXISTS password (
     createdAt TEXT DEFAULT CURRENT_TIMESTAMP,  
     updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,  
     deletedAt TEXT,  
-    FOREIGN KEY (folderId) REFERENCES folder(id)  
-);  
+    FOREIGN KEY (folderId) REFERENCES folder(id)
+);
+
+ALTER TABLE IF NOT EXISTS task ADD COLUMN completedAt TEXT;
 `  
 }
