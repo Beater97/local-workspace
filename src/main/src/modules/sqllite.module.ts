@@ -50,16 +50,5 @@ runSQLScript(sqlScript: string) {
   }
 }
 
-let dbInstance: SQLiteDB | null = null;
-
-export function getDB(): SQLiteDB {
-  if (!dbInstance) {
-    if (!app.isReady()) {
-      throw new Error('Database accessed before Electron app is ready');
-    }
-    dbInstance = new SQLiteDB();
-  }
-  return dbInstance;
-}
-
-export default getDB;
+const dbInstance = new SQLiteDB();
+export default dbInstance;
