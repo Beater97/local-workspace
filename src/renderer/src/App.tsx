@@ -34,11 +34,11 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <div className="h-[100vh]">
+    <div className="h-screen w-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-zinc-800 dark:to-zinc-950">
     <BrowserRouter>
-      <div className="flex w-screen h-full">
+      <div className="flex w-full h-full overflow-hidden">
         <Sidebar />
-        <main className="flex-1">
+        <main className="flex-1 overflow-y-auto">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/note" element={<Note />} />
