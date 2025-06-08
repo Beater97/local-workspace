@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
-import Dashboard from './components/Dashboard'
+import Dashboard from './pages/DashboardPage'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from './store'
 import { useEffect } from 'react'
@@ -31,7 +31,7 @@ export default function App() {
   }, [dispatch])
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-950">
+    <div className="h-screen w-screen bg-gradient-to-br bg-gray-100 dark:bg-gray-900">
       <BrowserRouter>
         <div className="flex w-full h-full overflow-hidden">
           <Sidebar />
