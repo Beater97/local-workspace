@@ -67,6 +67,5 @@ CREATE TABLE IF NOT EXISTS password (
     FOREIGN KEY (folderId) REFERENCES folder(id)
 );
 
-ALTER TABLE IF NOT EXISTS task ADD COLUMN completedAt TEXT;
 `  
 }
