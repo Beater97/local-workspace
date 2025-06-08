@@ -1,10 +1,9 @@
-import { BrowserWindow, shell } from "electron"
+import { BrowserWindow, shell } from 'electron'
 import icon from '../../../../resources/icon.png?asset'
-import { join } from "path"
-import { is } from "@electron-toolkit/utils"
+import { join } from 'path'
+import { is } from '@electron-toolkit/utils'
 
 export function createMainWindow(): void {
-
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,

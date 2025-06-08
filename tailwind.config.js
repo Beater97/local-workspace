@@ -1,8 +1,5 @@
 module.exports = {
-  content: [
-    './src/renderer/index.html',
-    './src/renderer/src/**/*.{ts,tsx}',
-  ],
+  content: ['./src/renderer/index.html', './src/renderer/src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -14,11 +11,11 @@ module.exports = {
           'Consolas',
           'Liberation Mono',
           'Courier New',
-          'monospace',
-        ],
-      },
-    },
+          'monospace'
+        ]
+      }
+    }
   },
   darkMode: 'class',
-  plugins: [],
-};
+  plugins: []
+}

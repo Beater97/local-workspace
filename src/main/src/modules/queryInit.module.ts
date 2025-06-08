@@ -1,4 +1,4 @@
-export function mainsql() {  
+export function mainsql() {
   return `  
 CREATE TABLE IF NOT EXISTS note (  
     id INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -67,5 +67,5 @@ CREATE TABLE IF NOT EXISTS password (
     FOREIGN KEY (folderId) REFERENCES folder(id)
 );
 
-`  
+`
 }

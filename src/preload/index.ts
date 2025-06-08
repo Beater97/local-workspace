@@ -1,5 +1,5 @@
-import { contextBridge, ipcRenderer } from 'electron';
-import { electronAPI } from '@electron-toolkit/preload';
+import { contextBridge, ipcRenderer } from 'electron'
+import { electronAPI } from '@electron-toolkit/preload'
 
 const api = {
   // 📦 Note
@@ -25,7 +25,8 @@ const api = {
     create: (data: Partial<KanbanColumn>) => ipcRenderer.invoke('kanbanColumn:create', data),
     readAll: () => ipcRenderer.invoke('kanbanColumn:readAll'),
     readById: (id: number) => ipcRenderer.invoke('kanbanColumn:readById', id),
-    update: (id: number, data: Partial<KanbanColumn>) => ipcRenderer.invoke('kanbanColumn:update', id, data),
+    update: (id: number, data: Partial<KanbanColumn>) =>
+      ipcRenderer.invoke('kanbanColumn:update', id, data),
     delete: (id: number) => ipcRenderer.invoke('kanbanColumn:delete', id)
   },
 
@@ -43,7 +44,8 @@ const api = {
     create: (data: Partial<Attachment>) => ipcRenderer.invoke('attachment:create', data),
     readAll: () => ipcRenderer.invoke('attachment:readAll'),
     readById: (id: number) => ipcRenderer.invoke('attachment:readById', id),
-    update: (id: number, data: Partial<Attachment>) => ipcRenderer.invoke('attachment:update', id, data),
+    update: (id: number, data: Partial<Attachment>) =>
+      ipcRenderer.invoke('attachment:update', id, data),
     delete: (id: number) => ipcRenderer.invoke('attachment:delete', id)
   },
 
@@ -52,21 +54,22 @@ const api = {
     create: (data: Partial<Password>) => ipcRenderer.invoke('password:create', data),
     readAll: () => ipcRenderer.invoke('password:readAll'),
     readById: (id: number) => ipcRenderer.invoke('password:readById', id),
-    update: (id: number, data: Partial<Password>) => ipcRenderer.invoke('password:update', id, data),
+    update: (id: number, data: Partial<Password>) =>
+      ipcRenderer.invoke('password:update', id, data),
     delete: (id: number) => ipcRenderer.invoke('password:delete', id)
   }
-};
+}
 
 if (process.contextIsolated) {
   try {
-    contextBridge.exposeInMainWorld('electron', electronAPI);
-    contextBridge.exposeInMainWorld('api', api);
+    contextBridge.exposeInMainWorld('electron', electronAPI)
+    contextBridge.exposeInMainWorld('api', api)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 } else {
   // @ts-ignore
-  window.electron = electronAPI;
+  window.electron = electronAPI
   // @ts-ignore
-  window.api = api;
+  window.api = api
 }
