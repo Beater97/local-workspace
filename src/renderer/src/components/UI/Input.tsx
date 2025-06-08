@@ -13,7 +13,7 @@ const baseStyles = `
   rounded-2xl
   border border-gray-300
   px-4 py-2
-  shadow-sm
+  shadow-inner
   focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500
   transition-all duration-200 ease-in-out
   hover:border-blue-400

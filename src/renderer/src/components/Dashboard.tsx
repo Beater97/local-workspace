@@ -29,9 +29,9 @@ export default function Dashboard() {
       <div className="w-full max-w-5xl mx-auto py-10 grid grid-cols-1 sm:grid-cols-3 gap-7">
         <div
           className="
-          border-l-4
+          border-l-4 shadow-md
           border-blue-600 dark:border-violet-500
-          bg-gray-50 dark:bg-zinc-900
+          bg-white dark:bg-zinc-900
           text-gray-800 dark:text-zinc-100
           rounded-md
           border-r border-t border-b
@@ -43,9 +43,9 @@ export default function Dashboard() {
         </div>
         <div
           className="
-          border-l-4 rounded-md
+          border-l-4 rounded-md shadow-md
           border-blue-600 dark:border-violet-500
-          bg-gray-50 dark:bg-zinc-900
+          bg-white dark:bg-zinc-900
           text-gray-800 dark:text-zinc-100
           border-r border-t border-b
           p-5 flex flex-col items-start justify-center min-h-[90px]">
@@ -56,9 +56,9 @@ export default function Dashboard() {
         </div>
         <div
           className="
-          border-l-4 rounded-md
+          border-l-4 rounded-md shadow-md
           border-blue-600 dark:border-violet-500
-          bg-gray-50 dark:bg-zinc-900
+          bg-white dark:bg-zinc-900
           text-gray-800 dark:text-zinc-100
           border-r border-t border-b
           p-5 flex flex-col items-start justify-center min-h-[90px]">
