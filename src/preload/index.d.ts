@@ -69,6 +69,7 @@ declare global {
     folderId?: number
     createdAt: string
     updatedAt: string
+    completedAt?: string
     deletedAt?: string
   }
 
