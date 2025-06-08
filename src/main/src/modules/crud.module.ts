@@ -1,4 +1,6 @@
-import dbInstance from "./sqllite.module";
+import dbInstance from './sqllite.module'
+
+
 
 // 🔥 CRUD generici
 function create<T>(table: string, data: Partial<T>): number {

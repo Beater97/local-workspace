@@ -49,6 +49,5 @@ runSQLScript(sqlScript: string) {
     this.db.close();
   }
 }
-
 const dbInstance = new SQLiteDB();
 export default dbInstance;
